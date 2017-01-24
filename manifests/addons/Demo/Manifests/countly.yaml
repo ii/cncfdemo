@@ -12,7 +12,7 @@ spec:
   - name: countly
     protocol: TCP
     port: 80
-    nodePort: 32080
+    nodePort: 31280
   type: LoadBalancer
 
 ---
