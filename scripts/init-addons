@@ -11,6 +11,7 @@ echo "❤ Patching addon scripts "
 
 [ -d ${OUTDIR} ] || mkdir ${OUTDIR}
 cp -r AddOns/* ${OUTDIR}
+cp -r Demo/ ${OUTDIR}
 
 sed -i.bak 's|${CLUSTER_DOMAIN}|'"${CLUSTER_DOMAIN}|g" "${OUTDIR}/"*.tpl
 sed -i.bak 's|${DNS_SERVICE_IP}|'"${DNS_SERVICE_IP}|g" "${OUTDIR}/"*.tpl
