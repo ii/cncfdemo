@@ -36,7 +36,7 @@ CIDR_VPC ?= 10.0.0.0/16
 ETCD_IPS ?= 10.0.10.10,10.0.10.11,10.0.10.12
 
 HYPERKUBE_IMAGE ?= quay.io/coreos/hyperkube
-HYPERKUBE_TAG ?= v1.5.1_coreos.0
+HYPERKUBE_TAG ?= v1.4.7_coreos.0
 
 # Alternative:
 # CIDR_PODS ?= "172.15.0.0/16"
@@ -91,7 +91,7 @@ clean: destroy delete-keypair
 
 create-addons:
 	@echo "${BLUE}❤ create add-ons ${NC}"
-	kubectl create -f .addons/
+	kubectl create -f .addons/ --recursive
 	@echo "${GREEN}✓ create add-ons - success ${NC}\n"
 
 create-busybox:
