@@ -14,3 +14,8 @@ build:
     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
     - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
+deploy:
+  image: "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
+  stage: deploy
+  script:
+    - make all
