@@ -1,23 +1,43 @@
-# terraform-aws-coreos-kubernetes
+# cncf-demo
 
-[![Gitter](https://badges.gitter.im/kz8s/tack.svg)](https://gitter.im/kz8s/tack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Circle CI](https://circleci.com/gh/kz8s/tack.svg?style=svg)](https://circleci.com/gh/kz8s/tack)
+Our evolving vision for the CNCF demo is to provide a widely referenced marketing demo using the shortest path to multi-cloud deployments.
 
-Opinionated [Terraform](https://terraform.io) module for creating a Highly Available [Kubernetes](http://kubernetes.io) cluster running on
-[CoreOS](https://coreos.com) (any channel) in an [AWS](https://aws.amazon.com)
-Virtual Private Cloud ([VPC](https://aws.amazon.com/vpc/)). With prerequisites
-installed `make all` will simply spin up a default cluster; and, since it is
-based on Terraform, customization is much easier than
-[CloudFormation](https://aws.amazon.com/cloudformation/).
+The approach needs to be opinionated to get us to multi-cloud deployments asap, while at the same time being easy for others to understand and modify.
 
-The default configuration includes Kubernetes
-[add-ons](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons):
-DNS, Dashboard and UI.
+-   current bootstrap only supports aws
+-   adding new providers specific [python API knowledge](https://github.com/cncf/demo/tree/master/cncfdemo-cli/cncfdemo/bootstrap/aws)
+-   [user data is minimally used](https://github.com/cncf/demo/blob/450ce0570d16695d00691762b0a1143c587a5193/cncfdemo-cli/cncfdemo/bootstrap/aws/cli.py#L122)
+-   http only (no https because certs are hard)
+
+A cloud-init approach is, by definition very cloud-native and can be replicated across multiple provisioning toolchains.
+
+Terraform is well documented/maintained and [supports the aws resources we need to configure](https://www.terraform.io/docs/providers/aws/). Targeting [Azure](https://www.terraform.io/docs/providers/azure), [Google](https://www.terraform.io/docs/providers/google/), and [Packet](https://www.terraform.io/docs/providers/packet/) would require minimal code changes. Simply [templating cloud-init](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html) across all those clouds which would reduce our dependency on vendor specific provisioning code. (We have also developed an approach for hardware deploys via Hanlon/PXE for CNCF Cluster)
+
+We took some time to understand and in the process simplify the cncf/demo codebase.
+
+You can take a look at code.ii.coop/cncf/demo
+
+# Using cncf demo as a base for cross-cloud / cross-project ci<a id="sec-2"></a>
+
+Our vision is to give the CNCF ClusterTechnologiesthe quality canaries we all need to have confidence that our projects continually work well together, using some of concepts from cncf/demo.
+
+-   Cross-Cloud-CI for Kubernetes
+-   combines a matrix of desired cloud providers, configs, and os images
+-   outputs a verified matrix of supported cloud provider config
+
+This toolchain would allow a broader group to quickly update, change, and scale a Multi-Cloud-CI for Kubernetes.
+
+-   Cross-Project-CI for Best Practices / Demos
+-   combines verified Cross-Cloud-CI output with orchestrated k8s app deploys
+-   outputs a test matrix can alert projects on commits that fail
+
+Using clouds created from the multi-cloud-CI there are mulitple approaches we could use to deploy, benchmark and test kubernetes apps, Redspread, GitLab.
+
 
 ## tl;dr
 ```bash
-# prereqs
-$ brew update && brew install awscli cfssl jq kubernetes-cli terraform
+# 
+$ docker run 
 
 # build artifacts and deploy cluster
 $ make all
