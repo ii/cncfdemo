@@ -24,11 +24,11 @@ fi
 
 # Run CMD
 if [ "$@" = "" ] ; then
-    echo make all
+    make all
 elif [ "$1" = "deploy-cloud" ] ; then
-    echo make all
+    make all
 elif [ "$1" = "deploy-demo" ] ; then
-    echo kubectl create -f ~/.addons/ --recursive
+    kubectl create -f ~/.addons/ --recursive
 elif [ "$1" = "destroy" ] ; then
-    echo make destroy
+    make destroy
 fi
