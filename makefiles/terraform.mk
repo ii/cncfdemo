@@ -8,18 +8,18 @@ terraform.tfvars:
 
 module.%:
 	@echo "${BLUE}❤ make $@ - commencing${NC}"
-	@time terraform apply -state /home/terraform/data/terraform.state -target $@
+	@time terraform apply -state /cncf/data/terraform.state -target $@
 	@echo "${GREEN}✓ make $@ - success${NC}"
 	@sleep 5.2
 
 ## terraform apply
 apply: plan
 	@echo "${BLUE}❤ terraform apply - commencing${NC}"
-	terraform apply -state /home/terraform/data/terraform.state
+	terraform apply -state /cncf/data/terraform.state
 	@echo "${GREEN}✓ make $@ - success${NC}"
 
 ## terraform destroy
-destroy: ; terraform destroy -state /home/terraform/data/terraform.state
+destroy: ; terraform destroy -state /cncf/data/terraform.state
 
 ## terraform get
 get: ; terraform get
@@ -31,9 +31,9 @@ init: terraform.tfvars
 plan: get init
 	terraform validate
 	@echo "${GREEN}✓ terraform validate - success${NC}"
-	terraform plan -state /home/terraform/data/terraform.state -out terraform.tfplan
+	terraform plan -state /cncf/data/terraform.state -out terraform.tfplan
 
 ## terraform show
-show: ; terraform show /home/terraform/data/terraform.state
+show: ; terraform show /cncf/data/terraform.state
 
 .PHONY: apply destroy get init module.% plan show
