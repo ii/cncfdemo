@@ -15,7 +15,7 @@ build:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$IMAGE_TAG" .
     - docker push "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
 deploy:
-  image: "$CI_REGISTRY_IMAGE:$IMAGE_TAG"
+  image: "$CI_REGISTRY_IMAGE:$CI_BUILD_REF_SLUG"
   stage: deploy
   script:
     - make all
