@@ -5,7 +5,7 @@
 
 set -e
 
-mkdir ~/.aws
+#mkdir ~/.aws
 cat <<EOF >/root/.aws/credentials
 [default]
 aws_access_key_id = ${AWS_ID}
