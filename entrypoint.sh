@@ -5,8 +5,8 @@
 set -e
 
 # Write aws Creds if they don't exist
-if [ -d /root/.aws ] ; then
-    echo "AWS Creds Already Exist Don't Gen"
+if [ "$(ls -A /root/.aws)" ]; then
+    echo "Creds Already Exist Don't Gen"
 else
     cat <<EOF >/root/.aws/credentials
 [default]
