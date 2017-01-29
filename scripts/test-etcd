@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 
-BASTION_IP=$(terraform output bastion-ip)
-INTERNAL_TLD=$(terraform output internal-tld)
+BASTION_IP=$(terraform output -state /cncf/data/terraform.state bastion-ip)
+INTERNAL_TLD=$(terraform output -state /cncf/data/terraform.state internal-tld)
 ETCD_URL="http://etcd.${INTERNAL_TLD}:2379"
 
 SSH_CMD="ssh -A core@${BASTION_IP}"
