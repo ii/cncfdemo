@@ -5,17 +5,15 @@
 set -e
 
 # Write aws Creds if they don't exist
-mkdir -p ~/.aws
-if [ ! -f /root/.aws/credentials ] ; then
-   cat <<EOF >/root/.aws/credentials
+if [ -d /root/.aws ] ; then
+    echo "AWS Creds Already Exist Don't Gen"
+else
+    cat <<EOF >/root/.aws/credentials
 [default]
 aws_access_key_id = ${AWS_ID}
 aws_secret_access_key = ${AWS_KEY}
 EOF
-fi
-
-if [ ! -f /root/.aws/config ] ; then
-cat <<EOF >/root/.aws/config
+    cat <<EOF >/root/.aws/config
 [default]
 output = ${OUTPUT}
 region = ${CONFIG_REGION}
