@@ -35,6 +35,8 @@ COPY makefiles /home/terraform/makefiles
 COPY modules /home/terraform/modules
 COPY scripts /home/terraform/scripts
 COPY test /home/terraform/test
-COPY io.tf Makefile modules.tf modules_override.tf vpc-existing.tfvars /home/terraform/
-CMD ["/bin/bash"]
-#ENTRYPOINT ["terraform"]
+COPY io.tf Makefile modules.tf modules_override.tf vpc-existing.tfvars entrypoint.sh /home/terraform/
+RUN chmod +x /home/terraform/entrypoint.sh
+
+#CMD ["/bin/bash"]
+ENTRYPOINT ["/home/terraform/entrypoint.sh"]
