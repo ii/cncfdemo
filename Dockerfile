@@ -28,15 +28,15 @@ RUN go get -u github.com/cloudflare/cfssl/cmd/cfssl && \
 #Add Terraform Modules
 go get -u github.com/cloudflare/cfssl/cmd/...
 
-WORKDIR /home/terraform
-COPY AddOns /home/terraform/AddOns
-COPY Demo /home/terraform/Demo
-COPY makefiles /home/terraform/makefiles
-COPY modules /home/terraform/modules
-COPY scripts /home/terraform/scripts
-COPY test /home/terraform/test
-COPY io.tf Makefile modules.tf modules_override.tf vpc-existing.tfvars entrypoint.sh /home/terraform/
-RUN chmod +x /home/terraform/entrypoint.sh
+WORKDIR /cncf
+COPY AddOns /cncf/AddOns
+COPY Demo /cncf/Demo
+COPY makefiles /cncf/makefiles
+COPY modules /cncf/modules
+COPY scripts /cncf/scripts
+COPY test /cncf/test
+COPY io.tf Makefile modules.tf modules_override.tf vpc-existing.tfvars entrypoint.sh /cncf/
+RUN chmod +x /cncf/entrypoint.sh
 
 
-ENTRYPOINT ["/home/terraform/entrypoint.sh"]
+ENTRYPOINT ["/cncf/entrypoint.sh"]
