@@ -8,12 +8,12 @@ NC := \033[0m
 
 # ∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨
 
-AWS_REGION ?= ${aws_region}
-COREOS_CHANNEL ?= ${coreos_channel}
-COREOS_VM_TYPE ?= ${coreos_vm_type}
+AWS_REGION := ${aws_region}
+COREOS_CHANNEL := ${coreos_channel}
+COREOS_VM_TYPE := ${coreos_vm_type}
 
-CLUSTER_NAME ?= ${test}
-AWS_EC2_KEY_NAME ?= ${aws_ec2_key_name}
+CLUSTER_NAME := ${test}
+AWS_EC2_KEY_NAME := ${aws_ec2_key_name}
 
 INTERNAL_TLD := ${internal_tld}
 
@@ -27,13 +27,13 @@ INTERNAL_TLD := ${internal_tld}
 # - http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing
 # - https://www.terraform.io/docs/providers/aws/r/vpc.html#cidr_block
 #
-CIDR_PODS ?= ${cidr_pods}
-CIDR_SERVICE_CLUSTER ?= ${cidr_service_cluster}
-K8S_SERVICE_IP ?= ${k8s_service_ip}
-K8S_DNS_IP ?= ${k8s_dns_ip}
+CIDR_PODS := ${cidr_pods}
+CIDR_SERVICE_CLUSTER := ${cidr_service_cluster}
+K8S_SERVICE_IP := ${k8s_service_ip}
+K8S_DNS_IP := ${k8s_dns_ip}
 
-CIDR_VPC ?= ${cidr_vpc}
-ETCD_IPS ?= ${etcd_ips}
+CIDR_VPC := ${cidr_vpc}
+ETCD_IPS := ${etcd_ips}
 
 HYPERKUBE_IMAGE ?= ${hyperkube_image}
 HYPERKUBE_TAG ?= ${hyperkube_tag}
