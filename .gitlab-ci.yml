@@ -6,6 +6,8 @@ services:
   - docker:dind
 
 build:
+  tags:
+    - iimac-shell
   stage: build
   script:
     - export IMAGE_TAG=$(echo -en $CI_BUILD_REF_NAME | tr -c '[:alnum:]_.-' '-')
