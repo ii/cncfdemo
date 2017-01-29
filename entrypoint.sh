@@ -6,6 +6,9 @@
 set -e
 
 #mkdir ~/.aws
+if [ "$(ls -A /root/.aws)" ]; then
+     echo "Creds Already Exist Don't Gen"
+else
 cat <<EOF >/root/.aws/credentials
 [default]
 aws_access_key_id = ${AWS_ID}
@@ -19,10 +22,13 @@ region = ${CONFIG_REGION}
 aws_access_key_id = ${AWS_ID}
 aws_secret_access_key = ${AWS_KEY}
 EOF
+fi
 
-if [ "$DEMO" = "deploy" ]; then
+
+
+if [ "$ACTION" = "deploy" ]; then
     make all
 
-elif [ "$DEMO" = "manifests" ]; then
+elif [ "$ACTION" = "manifests" ]; then
     kubectl create -f ~/.addons/ --recursive
     fi
