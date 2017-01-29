@@ -12,7 +12,7 @@ AWS_REGION := ${aws_region}
 COREOS_CHANNEL := ${coreos_channel}
 COREOS_VM_TYPE := ${coreos_vm_type}
 
-CLUSTER_NAME := ${test}
+CLUSTER_NAME := ${cluster_name}
 AWS_EC2_KEY_NAME := ${aws_ec2_key_name}
 
 INTERNAL_TLD := ${internal_tld}
