@@ -20,4 +20,8 @@ aws_access_key_id = ${AWS_ID}
 aws_secret_access_key = ${AWS_KEY}
 EOF
 
-sleep 10000000000
+if [ "DEMO" = 'deploy' ]; then
+    make all
+
+elif [ "DEMO" = 'manifests' ]; then
+    kubectl create -f ~/.addons/ --recursive
