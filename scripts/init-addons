@@ -1,8 +1,8 @@
 #!/bin/bash -eu
 
-CLUSTER_DOMAIN=$(terraform output -state /home/terraform/data/terraform.state cluster-domain)
-DNS_SERVICE_IP=$(terraform output -state /home/terraform/data/terraform.state dns-service-ip)
-INTERNAL_TLD=$(terraform output -state /home/terraform/data/terraform.state internal-tld)
+CLUSTER_DOMAIN=$(terraform output -state /cncf/data/terraform.state cluster-domain)
+DNS_SERVICE_IP=$(terraform output -state /cncf/data/terraform.state dns-service-ip)
+INTERNAL_TLD=$(terraform output -state /cncf/data/terraform.state internal-tld)
 
 OUTDIR=.addons
 
