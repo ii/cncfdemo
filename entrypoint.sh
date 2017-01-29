@@ -1,17 +1,20 @@
 #!/bin/bash
 #
 # RUN ENTRYPOINT.
-# Write aws Creds
 
 set -e
 
-mkdir ~/.aws
-cat <<EOF >/root/.aws/credentials
+# Write aws Creds if they don't exist
+mkdir -p ~/.aws
+if [ ! -f /root/.aws/credentials] ; then
+   cat <<EOF >/root/.aws/credentials
 [default]
 aws_access_key_id = ${AWS_ID}
 aws_secret_access_key = ${AWS_KEY}
 EOF
+fi
 
+if [ ! -f /root/.aws/config] ; then
 cat <<EOF >/root/.aws/config
 [default]
 output = ${OUTPUT}
@@ -19,10 +22,15 @@ region = ${CONFIG_REGION}
 aws_access_key_id = ${AWS_ID}
 aws_secret_access_key = ${AWS_KEY}
 EOF
+fi
 
-if [ "$DEMO" = "deploy" ]; then
+# Run CMD
+if [ "$@" = "" ]; then
     make all
-
-elif [ "$DEMO" = "manifests" ]; then
+elif [ "$1" = "deploy-cloud" ]; then
+    make all
+elif [ "$1" = "deploy-demo" ]; then
     kubectl create -f ~/.addons/ --recursive
-    fi
+elif [ "$1" = "destroy" ]; then
+    make destroy
+fi
