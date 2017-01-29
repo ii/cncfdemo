@@ -104,11 +104,11 @@ dashboard: ; @./scripts/dashboard
 
 ## show instance information
 instances:
-	@scripts/instances `terraform output -state /home/terraform/data/terraform.state name` `terraform output -state /home/terraform/data/terraform.state region`
+	@scripts/instances `terraform output -state /cncf/data/terraform.state name` `terraform output -state /cncf/data/terraform.state region`
 
 ## journalctl on etcd1
 journal:
-	@scripts/ssh ${DIR_KEY_PAIR}/${AWS_EC2_KEY_NAME}.pem `terraform output -state /home/terraform/data/terraform.state bastion-ip` "ssh `terraform output -state /home/terraform/data/terraform.state etcd1-ip` journalctl -fl"
+	@scripts/ssh ${DIR_KEY_PAIR}/${AWS_EC2_KEY_NAME}.pem `terraform output -state /cncf/data/terraform.state bastion-ip` "ssh `terraform output -state /cncf/data/terraform.state etcd1-ip` journalctl -fl"
 
 prereqs:
 	aws --version
@@ -123,11 +123,11 @@ prereqs:
 
 ## ssh into etcd1
 ssh:
-	@scripts/ssh ${DIR_KEY_PAIR}/${AWS_EC2_KEY_NAME}.pem `terraform output -state /home/terraform/data/terraform.state bastion-ip` "ssh `terraform output -state /home/terraform/data/terraform.state etcd1-ip`"
+	@scripts/ssh ${DIR_KEY_PAIR}/${AWS_EC2_KEY_NAME}.pem `terraform output -state /cncf/data/terraform.state bastion-ip` "ssh `terraform output -state /cncf/data/terraform.state etcd1-ip`"
 
 ## ssh into bastion host
 ssh-bastion:
-	@scripts/ssh ${DIR_KEY_PAIR}/${AWS_EC2_KEY_NAME}.pem `terraform output -state /home/terraform/data/terraform.state bastion-ip`
+	@scripts/ssh ${DIR_KEY_PAIR}/${AWS_EC2_KEY_NAME}.pem `terraform output -state /cncf/data/terraform.state bastion-ip`
 
 ## status
 status: instances
