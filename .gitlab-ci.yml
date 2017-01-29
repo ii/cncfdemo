@@ -13,8 +13,8 @@ build:
     - docker login -u "gitlab-ci-token" -p "$CI_BUILD_TOKEN" $CI_REGISTRY
     - docker build --pull -t docker.ii.org.nz/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_BUILD_REF_NAME .
     - docker push docker.ii.org.nz/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_BUILD_REF_NAME
-deploy:
-  image: "docker.ii.org.nz/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_BUILD_REF_NAME"
-  stage: deploy
-  script:
-    - make all
+#deploy:
+#  image: "docker.ii.org.nz/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_BUILD_REF_NAME"
+#  stage: deploy
+#  script:
+#    - make all
