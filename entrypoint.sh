@@ -21,18 +21,17 @@ fi
 
 # Run CMD
 if [ "$@" = "" ] ; then
-    # some silly issues around exporting cert
-    make all
-    # copy configured kubctl binary
-    cp /usr/bin/kubectl data/kubectl
-    mkdir -p data/.cfssl
-    cp -a .cfssl/* data/.cfssl/*
+    echo $@ not handled yet
 elif [ "$1" = "deploy-cloud" ] ; then
-    make all
-elif [ "$1" = "deploy-demo" ] ; then
-    kubectl create -f ~/.addons/ --recursive
+    make all || true # more logic later
+    kubectl proxy
 elif [ "$1" = "destroy" ] ; then
-    terraform get
+    #make .addons
+    #kubectl delete -f .addons/ --recursive || true
+    # kubernetes creates a load balancer on it's own
+    # we need to destroy it before terraform destroy
     make terraform.tfvars
-    make destroy
+    terraform get
+    make clean
+    #make destroy
 fi
