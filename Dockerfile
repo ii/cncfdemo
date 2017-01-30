@@ -1,9 +1,10 @@
 FROM golang:alpine
 MAINTAINER "Denver Williams <denver@ii.coop>"
-ENV TERRAFORM_VERSION=0.8.5
+ENV TERRAFORM_VERSION=0.8.4
 ENV KUBECTL_VERSION=v1.5.2
 ENV ARC=amd64
-
+ENV AWS_CONFIG_FILE=/cncf/data/awsconfig
+ENV KUBECONFIG=/cncf/data/kubeconfig
 # Install AWS CLI + Deps 
 RUN apk add --update git bash util-linux wget tar curl build-base jq python py-pip groff less && \
 pip install awscli && \
@@ -36,7 +37,8 @@ COPY modules /cncf/modules
 COPY scripts /cncf/scripts
 COPY test /cncf/test
 COPY io.tf modules.tf modules_override.tf vpc-existing.tfvars /cncf/
-COPY Makefile entrypoint.sh /cncf/
+COPY entrypoint.sh /cncf/
+COPY Makefile  /cncf/
 RUN chmod +x /cncf/entrypoint.sh
 
 

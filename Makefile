@@ -8,12 +8,12 @@ NC := \033[0m
 
 # ∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨
 
-AWS_REGION := us-east-1
+AWS_REGION := ap-southeast-2
 COREOS_CHANNEL := stable
 COREOS_VM_TYPE := hvm
 
 CLUSTER_NAME := test
-AWS_EC2_KEY_NAME := kz8s-test
+AWS_EC2_KEY_NAME := ii-cncfdemo
 
 INTERNAL_TLD := test.kz8s
 
@@ -47,7 +47,7 @@ HYPERKUBE_TAG ?= v1.4.7_coreos.0
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-DIR_KEY_PAIR := /root/.aws/keypair
+DIR_KEY_PAIR := /cncf/data
 DIR_SSL := .cfssl
 
 .addons:

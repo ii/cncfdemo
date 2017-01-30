@@ -19,7 +19,7 @@ apply: plan
 	@echo "${GREEN}✓ make $@ - success${NC}"
 
 ## terraform destroy
-destroy: ; terraform destroy -state /cncf/data/terraform.state
+destroy: ; terraform destroy -force -state /cncf/data/terraform.state
 
 ## terraform get
 get: ; terraform get
