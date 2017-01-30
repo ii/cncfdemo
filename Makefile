@@ -80,11 +80,15 @@ all: prereqs create-keypair ssl init apply
 .cfssl: ; ./scripts/init-cfssl ${DIR_SSL} ${AWS_REGION} ${INTERNAL_TLD} ${K8S_SERVICE_IP}
 
 ## destroy and remove everything
-clean: destroy delete-keypair
+clean: terraform.tfvars destroy delete-keypair
 	@-pkill -f "kubectl proxy" ||:
 	@-rm -rf .addons ||:
-	@-rm terraform.tfvars ||:
-	@-rm terraform.tfplan ||:
+	@-rm -f data/kubeconfig ||:
+	@-rm -f data/awsconfig ||:
+	@-rm -f data/terraform.state ||:
+	@-rm -f data/terraform.state.backup ||:
+	@-rm -f terraform.tfvars ||:
+	@-rm -f terraform.tfplan ||:
 	@-rm -rf .terraform ||:
 	@-rm -rf tmp ||:
 	@-rm -rf ${DIR_SSL} ||:
