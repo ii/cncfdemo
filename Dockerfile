@@ -35,7 +35,8 @@ COPY makefiles /cncf/makefiles
 COPY modules /cncf/modules
 COPY scripts /cncf/scripts
 COPY test /cncf/test
-COPY io.tf Makefile modules.tf modules_override.tf vpc-existing.tfvars entrypoint.sh /cncf/
+COPY io.tf modules.tf modules_override.tf vpc-existing.tfvars /cncf/
+COPY Makefile entrypoint.sh /cncf/
 RUN chmod +x /cncf/entrypoint.sh
 
 

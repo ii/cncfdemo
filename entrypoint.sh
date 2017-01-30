@@ -15,8 +15,8 @@ aws_secret_access_key = ${AWS_KEY}
 EOF
     cat <<EOF >/root/.aws/config
 [default]
-output = ${OUTPUT}
-region = ${CONFIG_REGION}
+output = ${OUTPUT:-json}
+region = ${CONFIG_REGION:-us-east-1}
 aws_access_key_id = ${AWS_ID}
 aws_secret_access_key = ${AWS_KEY}
 EOF

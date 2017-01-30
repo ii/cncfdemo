@@ -8,14 +8,14 @@ NC := \033[0m
 
 # ∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨
 
-AWS_REGION := ${aws_region:-us-east-1}
-COREOS_CHANNEL := ${coreos_channel:-stable}
-COREOS_VM_TYPE := ${coreos_vm_type:-hvm}
+AWS_REGION := us-east-1
+COREOS_CHANNEL := stable
+COREOS_VM_TYPE := hvm
 
-CLUSTER_NAME := ${cluster_name:-test}
-AWS_EC2_KEY_NAME := ${aws_ec2_key_name:-kz8s-test}
+CLUSTER_NAME := test
+AWS_EC2_KEY_NAME := kz8s-test
 
-INTERNAL_TLD := ${internal_tld:-test.kz8s}
+INTERNAL_TLD := test.kz8s
 
 # CIDR_PODS: flannel overlay range
 # - https://coreos.com/flannel/docs/latest/flannel-config.html
@@ -27,16 +27,16 @@ INTERNAL_TLD := ${internal_tld:-test.kz8s}
 # - http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing
 # - https://www.terraform.io/docs/providers/aws/r/vpc.html#cidr_block
 #
-CIDR_PODS := ${cidr_pods:-10.2.0.0/16}
-CIDR_SERVICE_CLUSTER := ${cidr_service_cluster:-10.3.0.0/24}
-K8S_SERVICE_IP := ${k8s_service_ip:-10.3.0.1}
-K8S_DNS_IP := ${k8s_dns_ip:-10.3.0.10}
+CIDR_PODS := 10.2.0.0/16
+CIDR_SERVICE_CLUSTER := 10.3.0.0/24
+K8S_SERVICE_IP := 10.3.0.1
+K8S_DNS_IP := 10.3.0.10
 
-CIDR_VPC := ${cidr_vpc:-10.0.0.0/16}
-ETCD_IPS := ${etcd_ips:-10.0.10.10,10.0.10.11,10.0.10.12}
+CIDR_VPC := 10.0.0.0/16
+ETCD_IPS := 10.0.10.10,10.0.10.11,10.0.10.12
 
-HYPERKUBE_IMAGE ?= ${hyperkube_image:-quay.io/coreos/hyperkube}
-HYPERKUBE_TAG ?= ${hyperkube_tag:-v1.4.7_coreos.0}
+HYPERKUBE_IMAGE ?= quay.io/coreos/hyperkube
+HYPERKUBE_TAG ?= v1.4.7_coreos.0
 
 # Alternative:
 # CIDR_PODS ?= "172.15.0.0/16"
