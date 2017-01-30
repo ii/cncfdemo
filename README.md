@@ -10,7 +10,7 @@ Terraform is well documented/maintained and [supports the aws resources we need 
 
 We took some time to understand and in the process simplify the cncf/demo codebase.
 
-You can take a look at [code.ii.coop/cncf/demo][code.ii.coop/cncf/demo]
+You can take a look at [code.ii.coop/cncf/demo](http://code.ii.coop/cncf/demo)
 
 ## Possible next steps:
 
