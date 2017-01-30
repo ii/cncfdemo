@@ -48,7 +48,7 @@ HYPERKUBE_TAG ?= v1.4.7_coreos.0
 
 
 DIR_KEY_PAIR := /cncf/data
-DIR_SSL := .cfssl
+DIR_SSL := /cncf/data/.cfssl
 
 .addons:
 	@echo "${BLUE}❤ initialize add-ons ${NC}"
