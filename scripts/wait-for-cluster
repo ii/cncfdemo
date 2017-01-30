@@ -15,3 +15,4 @@ _retry "❤ Curling apiserver external elb" curl --insecure --silent "https://${
 _retry "❤ Trying to connect to cluster with kubectl" kubectl cluster-info
 
 kubectl cluster-info
+sleep 2 # FIXME: Maybe API was up, but scheduling wasn't quite up?
