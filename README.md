@@ -27,7 +27,7 @@ $ export AWS_SECRET_ACCESS_KEY="YOUR_AWS_SECRET_KEY"
 # http://localhost:8001/ui is your Kubernetes Dashboard
 $ docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY \
              -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-             -v /tmp/data:/cncf/data \
+             -v $(pwd)/data:/cncf/data \
              --net=host
              --name=cncfdemo
              iicoop/cncfdemo
@@ -40,7 +40,7 @@ To access Elasticseach and Kibana visit:
 
 ```bash
 # To destroy everything
-$ docker run -v /tmp/data:/cncf/data iicoop/cncfdemo destroy
+$ docker run -v $(pwd)/data:/cncf/data iicoop/cncfdemo destroy
 $ docker rm -f cncfdemo
 ```
 
