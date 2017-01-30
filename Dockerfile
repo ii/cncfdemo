@@ -39,6 +39,7 @@ COPY test /cncf/test
 COPY io.tf modules.tf modules_override.tf vpc-existing.tfvars /cncf/
 COPY entrypoint.sh /cncf/
 COPY Makefile  /cncf/
+RUN ln -s data/.cfssl . #FIXME at https://gitlab.ii.org.nz/cncf/demo/issues/4
 RUN chmod +x /cncf/entrypoint.sh
 
 
