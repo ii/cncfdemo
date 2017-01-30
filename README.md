@@ -12,7 +12,7 @@ We took some time to understand and in the process simplify the cncf/demo codeba
 
 You can take a look at [code.ii.coop/cncf/demo][code.ii.coop/cncf/demo]
 
-## Some obvious next steps:
+## Possible next steps:
 
 - Multiple Cloud Providers (GCE? CNCF Cluster? Virtualbox?)
 - Parallel Deploys to the same cloud provider
@@ -71,14 +71,13 @@ creation
 * [docker](https://docker.io/)
 
 * AWS Users Permissions:
-
-- AmazonEC2FullAccess
-- AmazonS3FullAccess
-- AWSCodeDeployFullAccess
-- AmazonRoute53DomainsFullAccess
-- AmazonRoute53FullAccess
-- IAMFullAccess
-- IAMUserChangePassword
+  - AmazonEC2FullAccess
+  - AmazonS3FullAccess
+  - AWSCodeDeployFullAccess
+  - AmazonRoute53DomainsFullAccess
+  - AmazonRoute53FullAccess
+  - IAMFullAccess
+  - IAMUserChangePassword
 
 ## Resulting Cluster
 
@@ -90,7 +89,3 @@ creation
 - High Availability Kubernetes configuration (masters running on etcd nodes)
 - Autoscaling worker node group across subnets in selected region
 - kube-system namespace and addons: DNS, UI, Dashboard
-
-#### ElasticSearch and Kibana
-
-
