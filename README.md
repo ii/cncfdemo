@@ -25,7 +25,7 @@ $ export AWS_ACCESS_KEY_ID="YOUR_AWS_KEY_ID"
 $ export AWS_SECRET_ACCESS_KEY="YOUR_AWS_SECRET_KEY"
 # /tmp/data will have terraform, certs, aws, and kubectl configs
 # http://localhost:8001/ui is your Kubernetes Dashboard
-$ docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY \
+$ docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
              -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
              -v $(pwd)/data:/cncf/data \
              --net=host \
