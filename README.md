@@ -37,9 +37,6 @@ To access Elasticseach and Kibana visit:
 * [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging ](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging)
 * [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging)
 
-![Kibana Deploy](images/kibana_deploy.png)
-![Dashboard Deploy](images/dashboard_deploy.png)
-
 ```bash
 # To destroy everything
 $ docker run -v /tmp/data:/cncf/data iicoop/cncfdemo destroy
