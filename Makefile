@@ -83,10 +83,6 @@ all: prereqs create-keypair ssl init apply
 clean: terraform.tfvars destroy delete-keypair
 	@-pkill -f "kubectl proxy" ||:
 	@-rm -rf .addons ||:
-	@-rm -f data/kubeconfig ||:
-	@-rm -f data/awsconfig ||:
-	@-rm -f data/terraform.state ||:
-	@-rm -f data/terraform.state.backup ||:
 	@-rm -f terraform.tfvars ||:
 	@-rm -f terraform.tfplan ||:
 	@-rm -rf .terraform ||:
