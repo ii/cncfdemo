@@ -12,13 +12,12 @@ We took some time to understand and in the process simplify the cncf/demo codeba
 
 You can take a look at [code.ii.coop/cncf/demo][code.ii.coop/cncf/demo]
 
-## tl;dr
-```bash
-# 
-$ docker run 
+Some obvious next steps:
 
-# build artifacts and deploy cluster
-$ make all
+- Multiple Cloud Providers (GCE?)
+- Parallel Deploys to the same cloud provider
+- Local deploy (Vagrant via Virtualbox?)
+- ENV driven CI with metrics
 
 # nodes
 $ kubectl get nodes
