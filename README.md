@@ -12,12 +12,12 @@ We took some time to understand and in the process simplify the cncf/demo codeba
 
 You can take a look at [code.ii.coop/cncf/demo][code.ii.coop/cncf/demo]
 
-Some obvious next steps:
+## Some obvious next steps:
 
-- Multiple Cloud Providers (GCE?)
+- Multiple Cloud Providers (GCE? CNCF Cluster? Virtualbox?)
 - Parallel Deploys to the same cloud provider
-- Local deploy (Vagrant via Virtualbox?)
 - ENV driven CI with metrics
+- Clean up this quick and dirty PoC
 
 ## tl;dr
 ```bash
