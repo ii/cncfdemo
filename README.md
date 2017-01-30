@@ -73,6 +73,16 @@ creation
 ## Prerequisites
 * [docker](https://docker.io/)
 
+* AWS Users Permissions:
+
+- AmazonEC2FullAccess
+- AmazonS3FullAccess
+- AWSCodeDeployFullAccess
+- AmazonRoute53DomainsFullAccess
+- AmazonRoute53FullAccess
+- IAMFullAccess
+- IAMUserChangePassword
+
 ## Resulting Cluster
 
 - client and server TLS assets
