@@ -33,6 +33,14 @@ $ docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
              iicoop/cncfdemo
 ```
 
+Some commands you can run from another terminal:
+```bash
+docker exec -ti cncfdemo kubectl get nodes
+docker exec -ti cncfdemo kubectl get pods --namespace=kube-system
+docker exec -ti cncfdemo kubectl get pods
+docker exec -ti cncfdemo kubectl get pods --namespace=monitoring
+```
+
 To access Elasticseach and Kibana visit:
 
 * [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging ](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging)
