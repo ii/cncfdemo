@@ -19,20 +19,30 @@ Some obvious next steps:
 - Local deploy (Vagrant via Virtualbox?)
 - ENV driven CI with metrics
 
-# nodes
-$ kubectl get nodes
+## tl;dr
+```bash
+$ export AWS_ACCESS_KEY_ID="YOUR_AWS_KEY_ID"
+$ export AWS_SECRET_ACCESS_KEY="YOUR_AWS_SECRET_KEY"
+# /tmp/data will have terraform, certs, aws, and kubectl configs
+# http://localhost:8001/ui is your Kubernetes Dashboard
+$ docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY \
+             -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+             -v /tmp/data:/cncf/data \
+             --net=host
+             iicoop/cncfdemo
+```
 
-# addons
-$ kubectl get pods --namespace=kube-system
+To access Elasticseach and Kibana visit:
 
-# verify dns - run after addons have fully loaded
-$ kubectl exec busybox -- nslookup kubernetes
+* [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging ](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging)
+* [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging)
 
-# open dashboard
-$ make dashboard
+![Kibana Deploy](images/kibana_deploy.img)
+![Dashboard Deploy](images/dashboard_deploy.img)
 
-# obliterate the cluster and all artifacts
-$ make clean
+```bash
+# To destroy everything
+$ docker run -v /tmp/data:/cncf/data iicoop/cncfdemo destroy
 ```
 
 ## Features
@@ -76,13 +86,4 @@ creation
 
 #### ElasticSearch and Kibana
 
-To access Elasticseach and Kibana first start `kubectl proxy`.
-
-```bash
-$ kubectl proxy
-Starting to serve on localhost:8001
-```
-
-* [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging ](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging)
-* [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging)
 
