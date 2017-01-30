@@ -28,8 +28,8 @@ $ export AWS_SECRET_ACCESS_KEY="YOUR_AWS_SECRET_KEY"
 $ docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY \
              -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
              -v $(pwd)/data:/cncf/data \
-             --net=host
-             --name=cncfdemo
+             --net=host \
+             --name=cncfdemo \
              iicoop/cncfdemo
 ```
 
