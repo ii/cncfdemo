@@ -41,11 +41,12 @@ docker exec -ti cncfdemo kubectl get pods
 docker exec -ti cncfdemo kubectl get pods --namespace=monitoring
 ```
 
-To access Elasticseach and Kibana visit:
+To access Elasticseach, Kibana and Dashboard visit:
 
 * [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging ](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/elasticsearch-logging)
 * [http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging](http://localhost:8001/api/v1/proxy/namespaces/kube-system/services/kibana-logging)
-
+* [http://localhost:8001/ui]
+(http://localhost:8001/ui)
 ```bash
 # To destroy everything
 $ docker run -v $(pwd)/data:/cncf/data iicoop/cncfdemo destroy
