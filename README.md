@@ -4,7 +4,7 @@ Our evolving vision for the CNCF demo is to provide a widely referenced marketin
 
 The approach needs to be opinionated to get us to multi-cloud deployments asap, while at the same time being easy for others to understand and modify.
 
-A [cloud-init][https://cloud-init.io/] approach is, by definition very cloud-native and can be replicated across multiple provisioning toolchains.
+A [cloud-init](https://cloud-init.io/) approach is, by definition very cloud-native and can be replicated across multiple provisioning toolchains.
 
 Terraform is well documented/maintained and [supports the aws resources we need to configure](https://www.terraform.io/docs/providers/aws/). Targeting [Azure](https://www.terraform.io/docs/providers/azure), [Google](https://www.terraform.io/docs/providers/google/), and [Packet](https://www.terraform.io/docs/providers/packet/) would require minimal code changes. Simply [templating cloud-init](https://www.terraform.io/docs/providers/template/d/cloudinit_config.html) across all those clouds which would reduce our dependency on vendor specific provisioning code. (We have also developed an approach for hardware deploys via Hanlon/PXE for CNCF Cluster)
 
